@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.web.dto.PropertiesDTO;
 
-@RestController("/")
+@RestController
+@RequestMapping("/rest")
 @PropertySource(value="classpath:application.properties")
 public class HomeResource {
 
@@ -22,7 +23,7 @@ public class HomeResource {
     @Inject
     Environment environment;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/new/test", method = RequestMethod.GET)
     String getHomePage() {
         return "home";
     }
