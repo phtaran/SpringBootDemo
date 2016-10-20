@@ -13,4 +13,12 @@ public class PropertiesDTO implements Serializable {
         this.firstProperty = firstProperty;
         this.secondProperty = secondProperty;
     }
+
+    public String getFirstProperty() {
+        return firstProperty;
+    }
+
+    public String getSecondProperty() {
+        return secondProperty;
+    }
 }

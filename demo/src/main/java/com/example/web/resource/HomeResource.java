@@ -1,9 +1,5 @@
 package com.example.web.resource;
 
-import static org.springframework.http.ResponseEntity.ok;
-
-import java.util.Map;
-
 import javax.inject.Inject;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -34,12 +30,11 @@ public class HomeResource {
     @RequestMapping(value = "property",
                     method = RequestMethod.GET,
                     produces = MediaType.APPLICATION_JSON_VALUE)
-    PropertiesDTO getProperty() {
+    ResponseEntity<PropertiesDTO> getProperty() {
 
         String secondProperty = environment.getProperty("second_property");
         PropertiesDTO propertiesDTO = new PropertiesDTO(firstProperty, secondProperty);
 
-        ResponseEntity<PropertiesDTO> responseEntity = ResponseEntity.ok(propertiesDTO);
-        return propertiesDTO;
+        return ResponseEntity.ok(propertiesDTO);
     }
 }
