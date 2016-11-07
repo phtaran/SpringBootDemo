@@ -26,7 +26,6 @@ public class Person implements Serializable {
     String content;
 
     public Person() {
-
     }
 
     public Person(String name, int age, String content) {
