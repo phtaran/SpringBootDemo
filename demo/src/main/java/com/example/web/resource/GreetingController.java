@@ -24,21 +24,21 @@ public class GreetingController {
         return "greeting";
     }
 
-    @RequestMapping("/hello")
-    public @ResponseBody String getSession(HttpSession session) {
-        return "greeting";
-    }
-
-    @ModelAttribute
-    public Account addAccount(@RequestParam String number) {
-        return accountManager.findAccount(number);
-    }
-
-// Add multiple attributes
-
-    @ModelAttribute
-    public void populateModel(@RequestParam String number, Model model) {
-        model.addAttribute(accountManager.findAccount(number));
-        // add more ...
-    }
+//    @RequestMapping("/hello")
+//    public @ResponseBody String getSession(HttpSession session) {
+//        return "greeting";
+//    }
+//
+//    @ModelAttribute
+//    public Account addAccount(@RequestParam String number) {
+//        return accountManager.findAccount(number);
+//    }
+//
+//// Add multiple attributes
+//
+//    @ModelAttribute
+//    public void populateModel(@RequestParam String number, Model model) {
+//        model.addAttribute(accountManager.findAccount(number));
+//        // add more ...
+//    }
 }
