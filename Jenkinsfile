@@ -10,6 +10,6 @@ node {
     // Mark the code build 'stage'....
     stage 'Build'
 
-    maven 'clean package'
+    maven 'clean verify'
 }
 
