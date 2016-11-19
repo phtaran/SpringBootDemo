@@ -10,6 +10,8 @@ node {
     // Mark the code build 'stage'....
     stage 'Build'
 
-    maven 'clean verify'
+    def mvnHome = tool 'M3'
+    env.PATH = "${mvnHome}/bin:${env.PATH}"
+    sh 'mvn clean verify'
 }
 
