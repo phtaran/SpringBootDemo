@@ -11,6 +11,6 @@ node {
     stage 'Build'
 
     def mvnHome = tool 'mvn'
-    sh "${mvnHome}/bin/mvn clean verify"
+    bat "${mvnHome}/bin/mvn clean verify"
 }
 
