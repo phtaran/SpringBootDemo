@@ -24,5 +24,9 @@ public class DemoApplication {
 		for(URL url: urls){
 			System.out.println(url.getFile());
 		}
+
+		for(URL url: urls){
+			System.out.println(url.getFile());
+		}
 	}
 }
