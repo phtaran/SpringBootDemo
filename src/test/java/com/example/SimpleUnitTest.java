@@ -13,7 +13,7 @@ public class SimpleUnitTest {
     public void testJenkins() {
         fail();
 
-        System.out.println("");
+        System.out.println("   ");
     }
 
     
