@@ -11,7 +11,7 @@ public class SimpleUnitTest {
 
     @Test
     public void testJenkins() {
-        return;
+        fail();
     }
 
     
