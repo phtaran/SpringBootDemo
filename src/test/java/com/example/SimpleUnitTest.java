@@ -12,6 +12,8 @@ public class SimpleUnitTest {
     @Test
     public void testJenkins() {
         fail();
+
+        System.out.println("aa");
     }
 
     
