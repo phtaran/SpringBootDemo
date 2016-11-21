@@ -32,11 +32,4 @@ public class DatabaseConfig {
                 datasourceUrl, datasourceName, datasourcePassword);
         return driverManagerDataSource;
     }
-//
-//    @Bean
-//    public PlatformTransactionManager transactionManager() {
-//
-//        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager(dataSource());
-//        return dataSourceTransactionManager;
-//    }
 }
