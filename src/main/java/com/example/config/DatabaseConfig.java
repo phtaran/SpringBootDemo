@@ -14,7 +14,7 @@ import javax.sql.DataSource;
 @Configuration
 @EnableJpaRepositories("com.example.repository")
 @EnableTransactionManagement
-class DatabaseConfig {
+public class DatabaseConfig {
 
     @Value("${spring.datasource.url}")
     String datasourceUrl;
@@ -32,11 +32,11 @@ class DatabaseConfig {
                 datasourceUrl, datasourceName, datasourcePassword);
         return driverManagerDataSource;
     }
-
-    @Bean
-    public PlatformTransactionManager transactionManager() {
-
-        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager(dataSource());
-        return dataSourceTransactionManager;
-    }
+//
+//    @Bean
+//    public PlatformTransactionManager transactionManager() {
+//
+//        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager(dataSource());
+//        return dataSourceTransactionManager;
+//    }
 }
