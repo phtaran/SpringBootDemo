@@ -21,10 +21,14 @@ public class OtherPersonService {
 
         Person person = new Person("11", 11, "33");
         personRepository.save(person);
-        if (true) {
+        if (returnTrue()) {
             throw new RuntimeException("ds");
         }
 
         return "adad";
+    }
+
+    boolean returnTrue() {
+        return true;
     }
 }
