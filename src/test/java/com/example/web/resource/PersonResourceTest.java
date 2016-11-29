@@ -19,6 +19,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import javax.inject.Inject;
 
+import static org.junit.Assert.fail;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -46,18 +47,22 @@ public class PersonResourceTest {
     }
 
     @Test
-    public void getPersonById() throws Exception {
+    public void getPersonById() {
 
         Person person = new Person("John", 20, "test");
         personRepository.saveAndFlush(person);
         System.out.println(personRepository.findAll());
 
-        this.mockMvc.perform(get("/person/{id}", person.getId()).accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andDo(print())
-                .andExpect(jsonPath("$.name").value("John"))
-                .andExpect(jsonPath("$.age").value(20))
-                .andExpect(jsonPath("$.content").value("test"));
+        try {
+            this.mockMvc.perform(get("/person/{id}", person.getId()).accept(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isOk())
+                    .andDo(print())
+                    .andExpect(jsonPath("$.name").value("John"))
+                    .andExpect(jsonPath("$.age").value(20))
+                    .andExpect(jsonPath("$.content").value("test"));
+        } catch (Exception e) {
+            fail();
+        }
     }
 
 }
