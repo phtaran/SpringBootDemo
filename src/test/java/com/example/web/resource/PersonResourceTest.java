@@ -47,22 +47,16 @@ public class PersonResourceTest {
     }
 
     @Test
-    public void getPersonById() {
+    public void getPersonById() throws Exception {
 
         Person person = new Person("John", 20, "test");
         personRepository.saveAndFlush(person);
-        System.out.println(personRepository.findAll());
-
-        try {
-            this.mockMvc.perform(get("/person/{id}", person.getId()).accept(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andDo(print())
-                    .andExpect(jsonPath("$.name").value("John"))
-                    .andExpect(jsonPath("$.age").value(20))
-                    .andExpect(jsonPath("$.content").value("test"));
-        } catch (Exception e) {
-            fail();
-        }
+        this.mockMvc.perform(get("/person/{id}", person.getId()).accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andDo(print())
+                .andExpect(jsonPath("$.name").value("John"))
+                .andExpect(jsonPath("$.age").value(20))
+                .andExpect(jsonPath("$.content").value("test"));
     }
 
 }
