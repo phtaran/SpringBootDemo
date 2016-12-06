@@ -22,6 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<liquibase-slf4j.version>1.2.1</liquibase-slf4j.version>
 	</properties>
 
 	<dependencies>
@@ -65,6 +66,11 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-logging</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>9.1-901.jdbc4</version>
@@ -81,6 +87,29 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.6.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox.ui</groupId>
+			<artifactId>springfox-swagger-ui-rfc6570</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>jetty-servlet</artifactId>
+					<groupId>org.eclipse.jetty</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -90,8 +119,58 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<version>3.0.5</version>
+				<configuration>
+					<!--<propertyFileWillOverride>true</propertyFileWillOverride>-->
+					<!--<propertyFile>src/main/resources/liquibase.properties</propertyFile>-->
+
+					<changeLogFile>src/main/resources/liquibase/master.xml</changeLogFile>
+					<diffChangeLogFile>src/main/resources/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
+					<driver>org.postgresql.Driver</driver>
+					<url>jdbc:postgresql://localhost/springbootdb</url>
+					<defaultSchemaName>public</defaultSchemaName>
+					<username>postgres</username>
+					<password>1</password>
+					<referenceUrl>hibernate:spring:com.example.domain?dialect=org.hibernate.dialect.PostgreSQL82Dialect</referenceUrl>
+					<verbose>true</verbose>
+					<logging>debug</logging>
+					<!--<diffExcludeObjects>oauth_access_token, oauth_approvals, oauth_client_details, oauth_client_token, oauth_code, oauth_refresh_token</diffExcludeObjects>-->
+
+				</configuration>
+				<!--<executions>-->
+					<!--<execution>-->
+						<!--<phase>process-resources</phase>-->
+						<!--<goals>-->
+							<!--<goal>update</goal>-->
+						<!--</goals>-->
+					<!--</execution>-->
+				<!--</executions>-->
+				<dependencies>
+					<dependency>
+						<groupId>org.javassist</groupId>
+						<artifactId>javassist</artifactId>
+						<version>3.18.2-GA</version>
+					</dependency>
+					<!-- liquibase:diff is not worked for now since liquibase-hibernate5 integration is not available. -->
+					<!-- Check https://github.com/zanata/zanata-server/pull/1265 merged. Possible possible fix of [liquibase:diff] issue -->
+					<!-- Check https://github.com/liquibase/liquibase-hibernate/issues/96. Hibernate 5 integration -->
+					<!-- After PR above will be merged, try to change liquibase-hibernate verstion to 5 -->
+					<dependency>
+						<groupId>org.liquibase.ext</groupId>
+						<artifactId>liquibase-hibernate4</artifactId>
+						<version>3.6</version>
+					</dependency>
+					<dependency>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-starter-data-jpa</artifactId>
+						<version>${project.parent.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 		</plugins>
 	</build>
 
-	
 </project>
