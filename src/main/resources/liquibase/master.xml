@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.7"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.7
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.7.xsd">
+
+    <property name="changelogRootPath" value="liquibase/changelog"/>
+
+    <!-- [relativeToChangelogFile] Defaults to "false" since 1.9 -->
+    <include file="${changelogRootPath}/2016_12_05_create_table_person.xml"/>
+    <include file="${changelogRootPath}/2016_12_05_create_table_productcategory.xml"/>
+
+</databaseChangeLog>

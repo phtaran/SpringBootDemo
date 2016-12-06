@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet author="ph (generated)" id="1480946617082-3">
+        <createTable catalogName="springbootdb" schemaName="public" tableName="product_category">
+            <column name="id" type="INT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ph (generated)" id="1480946617082-4">
+        <addPrimaryKey catalogName="springbootdb" columnNames="id" constraintName="product_category_pkey" schemaName="public" tableName="product_category"/>
+    </changeSet>
+</databaseChangeLog>

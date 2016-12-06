@@ -1,4 +1,4 @@
-package com.example.domain;
+package com.example.domain.enumeration;
 
 public enum Category {
     Tablet,
