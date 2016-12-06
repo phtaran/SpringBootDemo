@@ -22,7 +22,7 @@ import java.util.stream.Stream;
 @Transactional
 public class CategoryResource {
 
-    private static Logger LOGGER = LoggerFactory.getLogger(CategoryResource.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CategoryResource.class);
 
     @Autowired
     CategoryService categoryService;
