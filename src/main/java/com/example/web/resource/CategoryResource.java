@@ -3,6 +3,8 @@ package com.example.web.resource;
 import com.example.domain.enumeration.Category;
 import com.example.service.CategoryService;
 import com.example.web.dto.CategoryDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +22,8 @@ import java.util.stream.Stream;
 @Transactional
 public class CategoryResource {
 
+    private static Logger LOGGER = LoggerFactory.getLogger(CategoryResource.class);
+
     @Autowired
     CategoryService categoryService;
 
@@ -30,7 +34,7 @@ public class CategoryResource {
 
     @PostMapping("/")
     ResponseEntity<CategoryDTO> addCategory(CategoryDTO categoryDTO) {
-        System.out.println(categoryDTO);
+        LOGGER.debug("CategoryResource::addCategory", categoryDTO);
         return ResponseEntity.ok(categoryDTO);
     }
 }
