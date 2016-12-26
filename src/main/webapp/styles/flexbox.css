@@ -1,0 +1,24 @@
+
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-content: stretch;
+}
+
+.item {
+    border: 1px solid black;
+    background-color: #1fc80d;
+    padding: 50px;
+    /*margin: 50px;*/
+    /*flex-basis: 100px;*/
+    /*flex-grow: 1;*/
+}
+
+#wide {
+    /*flex-grow: 1;*/
+}
+
+p {
+    display: inline;
+}

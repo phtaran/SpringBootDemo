@@ -1,0 +1,40 @@
+
+
+header {
+    background: linear-gradient(#4faafa, white);
+    height: 100px;
+    margin: 0;
+}
+
+
+a.logo, a.logo:active, a.logo:hover {
+    width: 470px;
+    height: 100px;
+    background: url("../image/rtw.png") no-repeat;;
+    background-size: 100px 100px;
+    display: block;
+    text-align: right;
+    line-height: 100px;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.header_content {
+    width: 70%;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.search {
+    text-align: center;
+}
+
+body, div {
+    /*border: 1px solid blue;*/
+    margin: 0;
+    padding: 0;
+}

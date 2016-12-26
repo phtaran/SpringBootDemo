@@ -1,60 +1,30 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
-    <script src="scripts/constants.js"></script>
-    <script src="scripts/categories.js"></script>
-
-    <script>
-
-        window.onload = function () {
-
-            var listElement = document.getElementById("products");
-
-            categories.onChange = function () {
-                makeHtmlList(listElement, categories.getItems())
-            };
-
-            getCategories(function (data) {
-                categories.setItems(data);
-                categories.update();
-            });
-
-        };
-
-    </script>
-
+    <meta charset="UTF-8">
+    <title>around world</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
-
 <body>
 
-    <header>
-        <p>My header</p>
-    </header>
+<header>
 
-    <p>Some text</p>
+    <div class="header_content">
+        <a class="logo" href="file:///D:/Projects/GitHub/SpringBootDemo/src/main/webapp/index.html">SOME VERY BIG COMPANY CARES ABOUT YOU</a>
 
-    <aside>
-        <ul>
-            <ul id="products">
+        <form action="file:///D:/Projects/GitHub/SpringBootDemo/src/main/webapp/index.html" method="get">
+            <input type="text" value="search">
+            <input type="submit">
+        </form>
 
-            </ul>
-        </ul>
-    </aside>
 
-    <!--<video width="400" height="300" controls="controls" poster="image/Scala intro.png">
-        <source src="video/2 - 1 - Lecture 1.1 - Programming Paradigms (14-32).mp4">
-    </video> -->
+        <div>
+            <a href="html/flexbox.html">using <em>flexbox</em> </a>
+        </div>
+    </div>
 
-    <iframe width="420" height="315"
-            src="https://www.youtube.com/embed/XGSy3_Czz8k">
-    </iframe>
 
-    <footer>
-        <p>Posted by: Hege Refsnes</p>
-        <p>Contact information: <a href="mailto:someone@example.com">someone@example.com</a></p>
-    </footer>
+</header>
 
 </body>
-
 </html>
